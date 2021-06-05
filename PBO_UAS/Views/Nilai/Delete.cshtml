@@ -1,0 +1,78 @@
+﻿@model PBO_UAS.Entities.Nilai
+
+@{
+    ViewBag.Title = "Hapus Nilai";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hapus</h2>
+
+<div>
+    <h4>Apakah anda yakin untuk menghapus Nilai @Html.DisplayFor(model => model.MataKuliah.Nama) dengan NIM @Html.DisplayFor(model => model.Nim)?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Nim)*@
+            NIM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nim)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.MataKuliah.Nama)*@
+            Nama Mata Kuliah
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MataKuliah.Nama)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Semester.KodeSemester)*@
+            Kode Semester
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester.KodeSemester)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Semester.NamaSemester)*@
+            Nama Semester
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester.NamaSemester)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NilaiAngka)*@
+            Nilai Angka
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NilaiAngka)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NilaiHuruf)*@
+            Nilai Huruf
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NilaiHuruf)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    @Html.ActionLink("Kembali ke Daftar", "Index") |
+    <input type="submit" value="Hapus" class="btn btn-danger" />
+</div>
+    }
+</div>

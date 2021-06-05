@@ -1,0 +1,46 @@
+﻿@model PBO_UAS.Entities.Semester
+
+@{
+    ViewBag.Title = "Detail Semester";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Semester</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NamaSemester)*@
+            Nama Semester
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamaSemester)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.TahunAjaran)*@
+            Tahun Ajaran
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TahunAjaran)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Active)*@
+            Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Kembali ke Daftar", "Index") |
+    @Html.ActionLink("Ubah", "Edit", new { id = Model.KodeSemester })
+</p>

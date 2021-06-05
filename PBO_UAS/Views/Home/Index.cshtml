@@ -1,0 +1,88 @@
+﻿@model PBO_UAS.Entities.Mahasiswa
+
+@{
+    ViewBag.Title = "Beranda";
+}
+
+<div class="jumbotron">
+    <h1>SIAKAD UNDANA</h1>
+    <p class="lead">SISTEM INFORMASI AKADEMIK UNIVERSITAS NUSA CENDANA</p>
+    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <br>
+        <p class="lead">Selamat Datang Administrator : @User.Identity.Name</p>
+    }
+    @if (Request.IsAuthenticated && User.IsInRole("Mahasiswa"))
+    {
+        <br>
+        <p>
+            Informasi Login :
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nim)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nim)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nama)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nama)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Jk)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Jk)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Angkatan)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Angkatan)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NoHp)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NoHp)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Alamat)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Alamat)
+                </dd>
+
+                <dt>
+                    Username
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.UserName)
+                </dd>
+
+                <dt>
+                    Password
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nim)
+                </dd>
+        </p>
+    }
+
+</div>
+

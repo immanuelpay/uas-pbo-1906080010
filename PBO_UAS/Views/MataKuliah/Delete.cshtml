@@ -1,0 +1,42 @@
+﻿@model PBO_UAS.Entities.MataKuliah
+
+@{
+    ViewBag.Title = "Hapus Mata Kuliah";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hapus</h2>
+
+<div>
+    <h4>Apakah anda yakin untuk menghapus @Html.DisplayFor(model => model.Nama)?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Nama)*@
+            Nama Mata Kuliah
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nama)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.JumlahSKS)*@
+            Jumlah SKS
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JumlahSKS)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    @Html.ActionLink("Kembali ke Daftar", "Index") |
+    <input type="submit" value="Hapus" class="btn btn-danger" />
+</div>
+    }
+</div>

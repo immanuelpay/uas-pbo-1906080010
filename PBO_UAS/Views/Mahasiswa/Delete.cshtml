@@ -1,0 +1,79 @@
+﻿@model PBO_UAS.Entities.Mahasiswa
+
+@{
+    ViewBag.Title = "Hapus Mahasiswa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hapus</h2>
+
+<div>
+    <h4>Apakah anda yakin untuk menghapus @Html.DisplayFor(model => model.Nim)?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Nim)*@
+            NIM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nim)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Nama)*@
+            Nama Lengkap
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nama)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Jk)*@
+            Jenis Kelamin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jk)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Angkatan)*@
+            Angkatan
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Angkatan)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NoHp)*@
+            No. Handphone
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoHp)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Alamat)*@
+            Alamat
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alamat)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Kembali ke Daftar", "Index") |
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>

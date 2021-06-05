@@ -1,0 +1,95 @@
+﻿@model IEnumerable<PBO_UAS.Entities.Nilai>
+
+@{
+    ViewBag.Title = "Nilai";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Daftar Nilai</h2>
+
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Tambah Nilai", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <th>
+                @*@Html.DisplayNameFor(model => model.Mahasiswa.Nim)*@
+                NIM
+            </th>
+        }
+        <th>
+            @*@Html.DisplayNameFor(model => model.MataKuliah.Nama)*@
+            Mata Kuliah
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Semester.NamaSemester)*@
+            Kode Semester
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Semester.NamaSemester)*@
+            Nama Semester
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NilaiAngka)*@
+            Nilai Angka
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NilaiHuruf)*@
+            Nilai Huruf
+        </th>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <th>
+                Aksi
+            </th>
+        }
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nim)
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.MataKuliah.Nama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester.KodeSemester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester.NamaSemester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NilaiAngka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NilaiHuruf)
+            </td>
+
+            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+        <td>
+            @if (item.Semester.Active)
+            {
+                @Html.ActionLink("Ubah", "Edit", new { id = item.Id })
+                @:|
+                @Html.ActionLink("Detail", "Details", new { id = item.Id })
+                @:|
+                @Html.ActionLink("Hapus", "Delete", new { id = item.Id })
+            }
+        </td>
+            }
+
+        </tr>
+    }
+
+</table>

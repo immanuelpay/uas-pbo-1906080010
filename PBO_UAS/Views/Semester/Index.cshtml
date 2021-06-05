@@ -1,0 +1,68 @@
+﻿@model IEnumerable<PBO_UAS.Entities.Semester>
+
+@{
+    ViewBag.Title = "Semester";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Daftar Semester</h2>
+
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Tambah Semester", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.KodeSemester)*@
+            Kode Semester
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NamaSemester)*@
+            Nama Semester
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TahunAjaran)*@
+            Tahun Ajaran
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Active)*@
+            Status
+        </th>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <th>
+                Aksi
+            </th>
+        }
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KodeSemester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaSemester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TahunAjaran)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.ActionLink("Ubah", "Edit", new { id = item.KodeSemester }) |
+                    @Html.ActionLink("Detail", "Details", new { id = item.KodeSemester }) |
+                    @Html.ActionLink("Hapus", "Delete", new { id = item.KodeSemester })
+                </td>
+            }
+        </tr>
+    }
+
+</table>

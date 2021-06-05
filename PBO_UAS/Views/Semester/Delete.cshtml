@@ -1,0 +1,51 @@
+﻿@model PBO_UAS.Entities.Semester
+
+@{
+    ViewBag.Title = "Hapus Semester";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hapus</h2>
+
+<div>
+    <h4>Apakah anda yakin untuk menghapus @Html.DisplayFor(model => model.NamaSemester)?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NamaSemester)*@
+            Nama Semester
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamaSemester)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.TahunAjaran)*@
+            Tahun Ajaran
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TahunAjaran)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Active)*@
+            Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    @Html.ActionLink("Kembali ke Daftar", "Index") |
+    <input type="submit" value="Hapus" class="btn btn-danger" />
+</div>
+    }
+</div>

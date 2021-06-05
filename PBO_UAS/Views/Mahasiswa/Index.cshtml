@@ -1,0 +1,72 @@
+﻿@model IEnumerable<PBO_UAS.Entities.Mahasiswa>
+
+@{
+    ViewBag.Title = "Mahasiswa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Daftar Mahasiswa</h2>
+
+<p>
+    @Html.ActionLink("Tambah Mahasiswa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Nim)*@
+            NIM
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Nama)*@
+            Nama Mahasiswa
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Jk)*@
+            Jenis Kelamin
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Angkatan)*@
+            Angkatan
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NoHp)*@
+            No. Handphone
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Alamat)*@
+            Alamat
+        </th>
+        <th>
+            Aksi
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Angkatan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoHp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alamat)
+        </td>
+        <td>
+            @Html.ActionLink("Ubah", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detail", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Hapus", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

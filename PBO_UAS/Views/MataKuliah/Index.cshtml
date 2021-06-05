@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PBO_UAS.Entities.MataKuliah>
+
+@{
+    ViewBag.Title = "Mata Kuliah";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Daftar Mata Kuliah</h2>
+
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Tambah Mata Kuliah", "Create")
+    </p>
+}
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.KodeMK)*@
+                Kode Mata Kuliah
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Nama)*@
+                Nama Mata Kuliah
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.JumlahSKS)*@
+                Jumlah SKS
+            </th>
+            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <th>
+                    Aksi
+                </th>
+            }
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KodeMK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JumlahSKS)
+        </td>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <td>
+                @Html.ActionLink("Ubah", "Edit", new { id = item.KodeMK }) |
+                @Html.ActionLink("Detail", "Details", new { id = item.KodeMK }) |
+                @Html.ActionLink("Hapus", "Delete", new { id = item.KodeMK })
+            </td>
+        }
+    </tr>
+        }
+
+    </table>

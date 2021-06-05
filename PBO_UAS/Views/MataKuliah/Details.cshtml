@@ -1,0 +1,37 @@
+﻿@model PBO_UAS.Entities.MataKuliah
+
+@{
+    ViewBag.Title = "Detail Mata Kuliah";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Mata Kuliah</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Nama)*@
+            Nama Mata Kuliah
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nama)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.JumlahSKS)*@
+            Jumlah SKS
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JumlahSKS)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Kembali ke Daftar", "Index") |
+    @Html.ActionLink("Ubah", "Edit", new { id = Model.KodeMK })
+</p>
